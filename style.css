@@ -17,6 +17,9 @@
     background-color: white;
     border-radius: 8px;
     margin-top: 10px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 40px;
 }
 
 .clear, .delete {
