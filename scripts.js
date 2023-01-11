@@ -9,10 +9,13 @@ const equals = document.querySelector('.equals');
 let num1 = '';
 let num2 = '';
 let operatorValue = '';
+equals.disabled = false;
+
 
 
 numbers.forEach((num) => {
     num.addEventListener('click', () => {
+        equals.disabled = false;
         if (operatorValue === '') {
             num1 += num.textContent;
             topDisplay.textContent = `${num1}`;
@@ -25,7 +28,12 @@ numbers.forEach((num) => {
 
 math.forEach((operator) => {
     operator.addEventListener('click', () => {
-        active = true;
+        equals.disabled = false;
+        if(topDisplay.textContent !== '' && bottomDisplay.textContent !== '' && num2 !== '') {
+
+            num1 = operate(operatorValue, num1, num2);
+            num2 = '';
+        }
         operatorValue = operator.textContent;
         topDisplay.textContent = `${num1} ${operatorValue}`;
         bottomDisplay.textContent = '';
@@ -33,20 +41,17 @@ math.forEach((operator) => {
 })
 
 equals.addEventListener('click', () => {
-    let active = true;
-    if(active === false) {
-        equals.disabled;
-    }
+    equals.disabled = true;
     topDisplay.textContent = `${num1} ${operatorValue} ${num2}`;
-    total = operate(operatorValue, num1, num2);
+    let total = operate(operatorValue, num1, num2);
     bottomDisplay.textContent = total;
     num1 = '';
     num2 = '';
     num1 = total;
-    active = false;
 })
 
 clear.addEventListener('click', () => {
+    equals.disabled = false;
     num1 = '';
     num2 = '';
     operatorValue = '';
@@ -55,6 +60,7 @@ clear.addEventListener('click', () => {
 })
 
 deleteNumber.addEventListener('click', () => {
+    equals.disabled = false;
     bottomDisplay.textContent = bottomDisplay.textContent.slice(0,-1);
     num2 = bottomDisplay.textContent;
 
