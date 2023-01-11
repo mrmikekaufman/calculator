@@ -1,0 +1,45 @@
+.container {
+    height: 700px;
+    width: 500px;
+    background-color:darkgrey;
+    border-radius: 8px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 4px;
+    padding: 6px 10px;
+}
+
+.display {
+    width: 450px;
+    height: 125px;
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.clear, .delete {
+    height: 60px;
+    width: 225px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.clear {
+    background-color: #FFCCCB;
+}
+
+.delete {
+    background-color:aquamarine;
+}
+
+.op {
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    
+}
